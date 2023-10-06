@@ -1,0 +1,234 @@
+#define A 11
+#define B 12
+#define C 6
+#define D 7
+#define E 8
+#define F 10
+#define G 9
+#define SUBE 3
+#define BAJA 2
+#define RESET 4
+#define UNIDAD A4
+#define DECENA A5
+#define APAGADOS 0
+#define TIMEDISPLAYON 10
+
+int countDigit = 0;
+int sube = 1;
+int subePrevia = 1;
+int baja = 1;
+int bajaPrevia = 1;
+int reset = 1;
+int resetPrevia = 1;
+
+
+void setup()
+{
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(UNIDAD, OUTPUT);
+  pinMode(DECENA, OUTPUT);
+  digitalWrite(UNIDAD,0);
+  digitalWrite(DECENA,0);
+  printDigit(0);
+}
+
+void loop()
+{
+  int pressed = keypressed();
+  if(pressed == SUBE)
+  {
+    countDigit++;
+    if(countDigit>99)
+      countDigit=0;
+  }
+  else if(pressed == BAJA)
+  {
+    countDigit--;
+    if(countDigit<0)
+    countDigit=99;
+  }
+  else if(pressed == RESET)
+  {
+    countDigit=0;
+  }
+  printCount(countDigit);
+ 
+}
+
+void printDigit(int digit)
+{
+  digitalWrite(A, 0);
+  digitalWrite(B, 0);
+  digitalWrite(C, 0);
+  digitalWrite(D, 0);
+  digitalWrite(E, 0);
+  digitalWrite(F, 0);
+  digitalWrite(G, 0);
+  switch(digit)
+  {
+    case 1:
+    {
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      break;
+    }
+    case 2:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(D, 1);
+      digitalWrite(E, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 3:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 4:
+    {
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      digitalWrite(F, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 5:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(F, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 6:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(E, 1);
+      digitalWrite(F, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 7:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      break;
+    }
+    case 8:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(E, 1);
+      digitalWrite(F, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 9:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(F, 1);
+      digitalWrite(G, 1);
+      break;
+    }
+    case 0:
+    {
+      digitalWrite(A, 1);
+      digitalWrite(B, 1);
+      digitalWrite(C, 1);
+      digitalWrite(D, 1);
+      digitalWrite(E, 1);
+      digitalWrite(F, 1);
+      break;
+    }
+  }
+}
+
+void prendeDigito(int digito)
+{
+  if(digito == UNIDAD)
+  {
+    digitalWrite(UNIDAD, 0);  // prende unidad y decena no
+    digitalWrite(DECENA, 1);
+    delay(TIMEDISPLAYON);
+  }
+  else if(digito == DECENA)
+  {
+    digitalWrite(UNIDAD, 1); //prende decena y unidad no
+    digitalWrite(DECENA, 0);
+    delay(TIMEDISPLAYON);
+  }
+  else
+  {
+    digitalWrite(UNIDAD, 1); // no prende nada
+    digitalWrite(DECENA, 1);
+  }
+}
+
+// Realizara calculos para poder sacar la decena y unidad del numero
+void printCount(int count)
+{
+  prendeDigito(APAGADOS);
+  printDigit(count/10);
+  prendeDigito(DECENA);
+  prendeDigito(APAGADOS);
+  printDigit(count - 10*((int)count/10));
+  prendeDigito(UNIDAD);
+}
+
+
+// Revisara si los botones se estan apretando
+int keypressed(void)
+{
+  sube = digitalRead(SUBE);
+  baja = digitalRead(BAJA);
+  reset = digitalRead(RESET);
+  if(sube)               //
+    subePrevia = 1;      // Para cada boton pregunto si
+  if(baja)               // no se presiono, si es asi 
+    bajaPrevia = 1;      // antes tampoco estaba presionada
+  if(reset)              // y retornara 0
+    resetPrevia = 1;     //
+  
+  // Si estaban presionados y anteriormente no, devolvera lo que se presiono
+  if(sube == 0 && sube != subePrevia)
+  {
+    subePrevia = sube;
+    return SUBE;
+  }
+  if(baja == 0 && baja != bajaPrevia)
+  {
+    bajaPrevia = baja;
+    return BAJA;
+  }
+  if(reset == 0 && reset != resetPrevia)
+  {
+    resetPrevia = reset;
+    return RESET;
+  }
+  return 0;
+}
+    
