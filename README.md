@@ -14,6 +14,11 @@
 ![Tinkercad](./img/contadorfotodiodo.png)
 
 
+## Elementos extra.
+Sensor de temperatura: detecta la temperatura 
+
+Fotodiodo: segun la cantidad de luz que reciba devuelve un voltaje
+
 ## Descripción
 Es un contador de 0-99 con dos displays de 7 segmentos, donde se utiliza la técnica de multiplexación. Tiene 3 botones, uno para aumentar en 1 el contador, otro para disminuir en 1 el contador y el ultima para resetear el contador a 0.
 
@@ -62,3 +67,4 @@ void loop()
 ## :robot: Link al proyecto
 - [proyecto sin switch](https://www.tinkercad.com/things/jQOk5VxMYV4)
 - [proyecto con switch](https://www.tinkercad.com/things/kwWlCwC2hzZ)
+- [proyecto parte 3](https://www.tinkercad.com/things/et641zeCrEi)
