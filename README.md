@@ -7,7 +7,7 @@
 ## Proyecto: Contador.
 ![Tinkercad](./img/Contador0-99.png)
 
-##Contador con sensor de temperatura.
+## Contador con sensor de temperatura.
 ![Tinkercad](./img/Contador0-99SwitchPrimos.png)
 
 
