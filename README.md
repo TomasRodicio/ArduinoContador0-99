@@ -7,6 +7,9 @@
 ## Proyecto: Contador.
 ![Tinkercad](./img/Contador0-99.png)
 
+##Contador con sensor de temperatura.
+![Tinkercad]()
+
 
 ## Descripción
 Es un contador de 0-99 con dos displays de 7 segmentos, donde se utiliza la técnica de multiplexación. Tiene 3 botones, uno para aumentar en 1 el contador, otro para disminuir en 1 el contador y el ultima para resetear el contador a 0.
