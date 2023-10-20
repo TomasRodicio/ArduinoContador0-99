@@ -8,7 +8,7 @@
 ![Tinkercad](./img/Contador0-99.png)
 
 ##Contador con sensor de temperatura.
-![Tinkercad]()
+![Tinkercad](./img/Contador0-99SwitchPrimos.png)
 
 
 ## Descripción
