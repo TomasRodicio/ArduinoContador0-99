@@ -4,13 +4,14 @@
 - Tomás Bautista Rodicio
 
 
-## Proyecto: Contador 0-99.
+## Proyecto: Contador.
 ![Tinkercad](./img/Contador0-99.png)
 
 
 ## Descripción
-Es un contador de 0-99 con dos displays de 7 segmentos, donde se utiliza la técnica de multiplexación. Tiene 3 botones, uno para aumentar en 1 el contador, otro para disminuir en 1 el contador y el ultima para resetear el contador a 0
+Es un contador de 0-99 con dos displays de 7 segmentos, donde se utiliza la técnica de multiplexación. Tiene 3 botones, uno para aumentar en 1 el contador, otro para disminuir en 1 el contador y el ultima para resetear el contador a 0.
 
+Al contador le agregue un switch para que muestre solamente los numeros primos.
 ## Función principal
 Esta funcion se encarga de aumentar, disminuir o resetear el contador
 
@@ -51,4 +52,5 @@ void loop()
 ~~~
 
 ## :robot: Link al proyecto
-- [proyecto](https://www.tinkercad.com/things/jQOk5VxMYV4)
+- [proyecto sin switch](https://www.tinkercad.com/things/jQOk5VxMYV4)
+- [proyecto con switch](https://www.tinkercad.com/things/kwWlCwC2hzZ)
