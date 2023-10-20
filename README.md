@@ -17,9 +17,9 @@
 ## Descripción
 Es un contador de 0-99 con dos displays de 7 segmentos, donde se utiliza la técnica de multiplexación. Tiene 3 botones, uno para aumentar en 1 el contador, otro para disminuir en 1 el contador y el ultima para resetear el contador a 0.
 
-Al contador le agregue un switch para que muestre solamente los numeros primos, y un sensor de temperatura que cuando supera ciertos grados se resetea el contador.
+Al contador le agregue un switch para que muestre solamente los numeros primos, un sensor de temperatura que cuando supera los 60 grados el contador queda en 0, y un fotodiodo que al llegarle cierta cantidad de luz también deja el contador en 0.
 
-Por ultimo le agrego un fotodiodo
+
 ## Función principal
 Esta funcion se encarga de aumentar, disminuir o resetear el contador
 
